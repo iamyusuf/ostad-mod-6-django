@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ostad-mod-6-deployment
+  namespace: production
+  labels:
+    app: ostad-mod-6
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ostad-mod-6
+  template:
+    metadata:
+      labels:
+        app: ostad-mod-6
+    spec:
+      containers:
+      - name: ostad-mod-6-container
+        image: iamyusuf/ostad-mod-6
+        ports:
+        - containerPort: 8000
